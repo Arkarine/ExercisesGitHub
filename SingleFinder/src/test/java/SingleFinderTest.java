@@ -13,4 +13,16 @@ public class SingleFinderTest {
         int[] input = {2, 2, 2, 5, 5};
         assertEquals(2, SingleFinder.findSingle(input));
     }
+
+    @Test
+    public void findSingleTest_for6(){
+        int[] input = {2, 5, 2, 2, 7, 5, 2, 2, 2};
+        assertEquals(7, SingleFinder.findSingle(input));
+    }
+
+    @Test
+    public void findSingleTest_OneNumber(){
+        int[] input = {2};
+        assertEquals(2, SingleFinder.findSingle(input));
+    }
 }
