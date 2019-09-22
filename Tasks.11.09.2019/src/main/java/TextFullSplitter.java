@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -8,43 +9,32 @@ public class TextFullSplitter {
     if the input string can be segmented into a
     sequence(List) of dictionary words.
      */
-    public  static Set<String> dictionary;
+    public  static Set<String> vocabulary;
 
-    public static List<String> divide(String str)
-    {
-        List<String> result = new ArrayList<String>();
-        divideUtil(str, str.length(), result);
-        return result;
+    public static List<String> divide(String text) throws NotSplitException {
+        LinkedList<String> res = new LinkedList<String>();
+        divideUtil(text, res);
+        return res;
     }
 
     // result List store the current substring
 
-    public static List<String> divideUtil(String str, int n, List<String> result)
-    {
-        for (int i=1; i<= n; i++){
-
-            String substr = str.substring(0, i);
-
-            //check
-            // if dictionary contains this substr,
-            // and remaining string starts with a word from dictionary
-            // or there is no more remaining string
-            // then add to the result list
-
-            if (dictionary.contains(substr) && (isStartsDictWord(str.substring(i,n)) || i==n)){
-                result.add(substr);
-                divideUtil(str.substring(i, n),n-i, result);
+    public static void divideUtil(String text, LinkedList<String> result) throws NotSplitException {
+        if(text.equals("")){
+            return;
+        }
+        for (String word : vocabulary) {
+            if(text.startsWith(word)){
+                result.add(word);
+                try{
+                    divideUtil(text.substring(word.length()), result);
+                    return;
+                }catch (NotSplitException e){
+                    result.removeLast();
+                }
             }
         }
-        return result;
+        throw new NotSplitException();
     }
 
-    public static boolean isStartsDictWord(String s){
-        for (String word: dictionary) {
-            if(s.startsWith(word)){
-                return true;
-            }
-        }
-        return false;
-    }
 }

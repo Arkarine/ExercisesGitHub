@@ -3,6 +3,9 @@ public class Fibonacci {
     // Find N th Fibonacci number
 
     public long N_Fibonacci (int N){
+        if(N <= 1){
+            return N;
+        }
         long[] FibonacciArray = new long[N+1];
         FibonacciArray[0] = 0;
         FibonacciArray[1] = 1;
