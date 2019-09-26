@@ -7,7 +7,7 @@ public class FrequenciesPrinter {
     The task is to print the characters along with their
     frequencies in the order of their occurrence in the given string.
 
-    "aaabbcc" -> "a3b2c2"
+    "aaabbccaa" -> "a5b2c2"
      */
     public String charWithFrequencies(String s){
         Map<Character, Integer> sMap = new HashMap<>();

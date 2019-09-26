@@ -29,8 +29,9 @@ public class FibonacciRecursion {
 
     private static long findFibonacciRec(int number, long[] result){
 
-        if(number == 0) {return 0;}
-        if(number == 1) {return 1;}
+        if(number <= 1){
+            return number;
+        }
 
         if(result[number] == 0 ){
             result[number] = findFibonacciRec(number - 1 , result) + findFibonacciRec(number-2 , result);
