@@ -3,13 +3,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GreatestCommonDivisorBinaryTest {
+public class GreatestCommonDivisorTest {
 
-    private GreatestCommonDivisorBinary gcd;
+    private GreatestCommonDivisor gcd;
 
     @Before
     public void init(){
-        gcd = new GreatestCommonDivisorBinary();
+        gcd = new GreatestCommonDivisor();
     }
 
     @Test
@@ -32,9 +32,9 @@ public class GreatestCommonDivisorBinaryTest {
         assertEquals(1, gcd.findGcd(5,13));
     }
 
-    //-------------------------
     @Test
     public void findGcd_big(){
+        assertEquals(120, gcd.findGcd(240,360));
         System.out.println(gcd.findGcd(240, 360));
     }
 }
