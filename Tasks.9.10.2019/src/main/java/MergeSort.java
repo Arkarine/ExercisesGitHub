@@ -8,6 +8,10 @@ public class MergeSort {
 
     public static int[] mergeSort(int[] a, int n){
         n = a.length;
+        if(n == 1){
+            //it is already sorted, only one element
+            return a;
+        }
         int middle = n / 2;
         int[] leftHalf = new int[middle];
         int[] rightHalf = new int[n - middle];
@@ -16,10 +20,6 @@ public class MergeSort {
         }
         for (int i = 0; i < rightHalf.length; i++) {
             rightHalf[i] = a[i + middle];
-        }
-        if(n == 1){
-            //it is already sorted, only one element
-            return a;
         }
         return merge(mergeSort(leftHalf,middle), mergeSort(rightHalf , n-middle));
     }

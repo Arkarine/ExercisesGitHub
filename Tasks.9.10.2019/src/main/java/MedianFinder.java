@@ -2,6 +2,9 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class MedianFinder {
+
+    // Find Median from Data Stream
+
     private PriorityQueue<Integer> minPQ = new PriorityQueue<Integer>(); //higher half
     private PriorityQueue<Integer> maxPQ = new PriorityQueue<Integer>(Comparator.reverseOrder()); //lower half
 
