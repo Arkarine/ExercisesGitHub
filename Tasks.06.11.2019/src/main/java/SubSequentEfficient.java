@@ -6,7 +6,13 @@ public class SubSequentEfficient {
         if(indexPattern == -1){
             return true;
         }
+        /*
         if(indexText == -1){
+            return false;
+        }
+         */
+
+        if(indexText < indexPattern){
             return false;
         }
 
@@ -30,6 +36,7 @@ public class SubSequentEfficient {
     }
 
     public static void main(String[] args) {
+
         String text = "Helloworld";
         String pattern = "Hwd";
         System.out.println(isSubSequent(text, pattern));
