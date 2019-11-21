@@ -8,11 +8,8 @@ public class SubsequenceChecker {
     O(n)
      */
     public boolean isSubsequencesConcat(String text1, String text2) {
-        LinkedList<String> result = new LinkedList<>();
-
         try {
             isSubsequencesConcatRec(text1, text2);
-            result.forEach(System.out::println);
             return true;
         } catch (NotSplitException e) {
             return false;
