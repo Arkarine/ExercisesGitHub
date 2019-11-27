@@ -2,8 +2,9 @@ public class FirstMissingPositiveFinder {
     /*
     Given an unsorted integer array, find the first missing positive integer.
     For example, given [1,2,3,4,0] return 5 and [3,2,5,-1,1] return 4.
+    Algorithm should run in O(n) time and uses constant space.
 
-    Algorithm complexity O(n).
+    A O(n) time and O(1) extra space solution:
      */
     public int findFristPositive(int[] array){
 
