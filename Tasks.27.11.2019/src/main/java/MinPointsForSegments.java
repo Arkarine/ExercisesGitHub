@@ -1,9 +1,9 @@
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 public class MinPointsForSegments {
-    /*
+
+     /*
     Given n intervals. Find the set of points having the minimum size (cardinality),
     for which each of the given intervals contains at least one of the points.
 
@@ -13,33 +13,23 @@ public class MinPointsForSegments {
    If there are several such sets, output any of them.
      */
 
+    /*  На числовой прямой даны отрезки.
+    Найти минимальное количество точек так, чтобы каждый отрезок покрывал хотябы одну точку.
+    */
 
     public int findMinPoints(List<Segment> segments){
-        int quantity = 0;
-        LinkedList<Double> leftQueue = new LinkedList<>();
-        LinkedList<Double> rightQueue = new LinkedList<>();
-        for (int i = 0; i < segments.size(); i++) {
-            leftQueue.add(segments.get(i).getLeft());
-            rightQueue.add(segments.get(i).getRight());
+        int quantity = 1;
+        Collections.sort(segments);
+        double minRightBorder = segments.get(0).getRight();
+        for (int i = 1; i < segments.size(); i++) {
+            if(segments.get(i).getRight() < minRightBorder){
+                minRightBorder = segments.get(i).getRight();
+            }
+            else if(segments.get(i).getLeft() > minRightBorder){
+                quantity ++;
+                minRightBorder = segments.get(i).getRight();
+            }
         }
-        Collections.sort(leftQueue);
-        Collections.sort(rightQueue);
-
-        return findMinPointsRec(leftQueue, rightQueue, quantity);
-    }
-
-
-    public int findMinPointsRec(LinkedList<Double> leftQueue, LinkedList<Double> rightQueue, int quantity) {
-        if(leftQueue.size() == 0){
-            return quantity;
-        }
-        while(leftQueue.size() != 0 && leftQueue.getFirst() < rightQueue.getFirst()){
-            leftQueue.remove(leftQueue.getFirst());
-        }
-        quantity = quantity + 1;
-        rightQueue.remove(rightQueue.getFirst());
-        return findMinPointsRec(leftQueue, rightQueue, quantity);
+        return quantity;
     }
 }
-
-
