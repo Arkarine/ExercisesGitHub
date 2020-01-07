@@ -2,7 +2,6 @@ public class MinQuantity {
     /*
     Find minimum count of given numbers(10, 5, 1) whose sum equals to given number 'sum'.
     For example 28 = 10+10+5+1+1+1 => quantity = 6
-
      */
     public static int findMinQuantity(int sum){
         int quantity = 0;

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MaxQuantityDifferentNum {
@@ -22,10 +23,11 @@ public class MaxQuantityDifferentNum {
         return result;
     }
 
+
     public static void main(String[] args) {
         MaxQuantityDifferentNum mqdn = new MaxQuantityDifferentNum();
 
-        System.out.println(mqdn.findMaxQuantity(6));
+        System.out.println(mqdn.findMaxQuantity(58));
         System.out.println(mqdn.quantity);
         System.out.println(mqdn.findMaxQuantity(8));
         System.out.println(mqdn.quantity);
