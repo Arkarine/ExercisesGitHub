@@ -19,7 +19,7 @@ public class ParenthesesCheckerTest {
     }
 
     @Test
-    public void checkParenthesesOrderTest_invalid() {
+    public void checkParenthesesOrderTest_invalid_multipleParenthesesAtTheBeginning() {
         String input = "[[[[[[()]{}{[()()]()}";
         assertFalse(pch.checkParenthesesOrder(input));
     }
@@ -27,6 +27,12 @@ public class ParenthesesCheckerTest {
     @Test
     public void checkParenthesesOrderTest_outOfOrder() {
         String input = ")(";
+        assertFalse(pch.checkParenthesesOrder(input));
+    }
+
+    @Test
+    public void checkParenthesesOrderTest_invalid_multipleParenthesesAtTheEnd() {
+        String input = "[()]{}{[()()]()}}}}}}}}}";
         assertFalse(pch.checkParenthesesOrder(input));
     }
 }
